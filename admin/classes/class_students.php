@@ -43,6 +43,7 @@ $students = mysqli_query($conn, "
 <link rel="stylesheet" href="../../assets/css/admin.css">
 
 <style>
+    
 /* HEADER CARD */
 .class-header{
     background: linear-gradient(135deg,#3498db,#2c3e50);
@@ -90,14 +91,14 @@ table tr:hover{
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-    <a href="../dashboard.php">Dashboard</a>
+    <a href="../dashboard.php" class="active">Dashboard</a>
     <a href="../students/manage_students.php">Students</a>
     <a href="../teachers/manage_teachers.php">Teachers</a>
-    <a href="manage_classes.php" class="active">Classes</a>
+    <a href="../classes/manage_classes.php">Classes</a>
     <a href="../subjects/manage_subjects.php">Subjects</a>
-    <a href="../reports/attendance_report.php">Attendance</a>
-    <a href="../reports/performance_report.php">Performance</a>
-    <a href="../settings/system_settings.php">Settings</a>
+    <a href="../reports/attendance_report.php">Attendance Reports</a>
+    <a href="../reports/performance_report.php">Performance Reports</a>
+    <a href="../settings/system_settings.php">System Settings</a>
 </div>
 
 <!-- CONTENT -->

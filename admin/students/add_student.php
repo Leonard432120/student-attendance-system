@@ -120,9 +120,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 <div class="dashboard">
 
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="../dashboard.php" class="active">Dashboard</a>
-    <a href="manage_students.php">Students</a>
+    <a href="../students/manage_students.php">Students</a>
     <a href="../teachers/manage_teachers.php">Teachers</a>
     <a href="../classes/manage_classes.php">Classes</a>
     <a href="../subjects/manage_subjects.php">Subjects</a>

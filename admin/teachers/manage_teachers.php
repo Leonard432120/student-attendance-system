@@ -74,16 +74,16 @@ $teachers = mysqli_query($conn, $query);
 
 <div class="dashboard">
 
-<!-- SIDEBAR (MATCH STUDENTS EXACTLY) -->
+<!-- SIDEBAR -->
 <div class="sidebar">
-<a href="../dashboard.php">Dashboard</a>
-<a href="../students/manage_students.php">Students</a>
-<a href="manage_teachers.php" class="active">Teachers</a>
-<a href="../classes/manage_classes.php">Classes</a>
-<a href="../subjects/manage_subjects.php">Subjects</a>
-<a href="../reports/attendance_report.php">Attendance</a>
-<a href="../reports/performance_report.php">Performance</a>
-<a href="../settings/system_settings.php">Settings</a>
+    <a href="../dashboard.php" class="active">Dashboard</a>
+    <a href="../students/manage_students.php">Students</a>
+    <a href="../teachers/manage_teachers.php">Teachers</a>
+    <a href="../classes/manage_classes.php">Classes</a>
+    <a href="../subjects/manage_subjects.php">Subjects</a>
+    <a href="../reports/attendance_report.php">Attendance Reports</a>
+    <a href="../reports/performance_report.php">Performance Reports</a>
+    <a href="../settings/system_settings.php">System Settings</a>
 </div>
 
 <!-- CONTENT -->

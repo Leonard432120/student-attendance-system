@@ -23,13 +23,15 @@ $class_id = $student['class_id'] ?? null;
 
 /* Fetch results */
 $results_res = mysqli_query($conn, "
-    SELECT sub.subject_name, a.test_mark, a.assignment_mark, a.exam_mark,
-           ROUND((a.test_mark + a.assignment_mark + a.exam_mark)/3,2) AS avg_mark
-    FROM assessments a
-    JOIN subjects sub ON a.subject_id = sub.subject_id
-    WHERE a.student_id='$student_id'
-    ORDER BY sub.subject_name ASC
-");
+    SELECT sub.subject_name, 
+       a.test_mark, 
+       a.assignment_mark, 
+       a.exam_mark,
+       (a.test_mark + a.assignment_mark + a.exam_mark) AS final_mark
+FROM assessments a
+JOIN subjects sub ON a.subject_id = sub.subject_id
+WHERE a.student_id='$student_id'
+ORDER BY sub.subject_name ASC");
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +92,7 @@ $profile = $user['profile_image'] ?? 'default.png';
 <th>Test Mark</th>
 <th>Assignment Mark</th>
 <th>Exam Mark</th>
-<th>Average</th>
+<th>Final Mark (%)</th>
 </tr>
 <?php while($res = mysqli_fetch_assoc($results_res)): ?>
 <tr>
@@ -98,7 +100,7 @@ $profile = $user['profile_image'] ?? 'default.png';
 <td><?php echo $res['test_mark'] ?? 'N/A'; ?></td>
 <td><?php echo $res['assignment_mark'] ?? 'N/A'; ?></td>
 <td><?php echo $res['exam_mark'] ?? 'N/A'; ?></td>
-<td><?php echo $res['avg_mark'] ?? 'N/A'; ?></td>
+<td><?php echo $res['final_mark'] ?? 'N/A'; ?></td>
 </tr>
 <?php endwhile; ?>
 </table>

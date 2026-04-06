@@ -74,7 +74,7 @@ $subjects = mysqli_query($conn, "
             color: #ecf0f1;
             padding: 12px 20px;
             text-decoration: none;
-            font-weight: bold;
+            
             transition: 0.2s;
         }
         .sidebar a.active, .sidebar a:hover {  background:#2c3e50; color:#3498db; }
@@ -181,16 +181,17 @@ $subjects = mysqli_query($conn, "
 
 <div class="dashboard">
 
-    <div class="sidebar">
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="../students/manage_students.php">Students</a>
-        <a href="../teachers/manage_teachers.php">Teachers</a>
-        <a href="manage_classes.php" class="active">Classes</a>
-        <a href="../subjects/manage_subjects.php">Subjects</a>
-        <a href="../reports/attendance_report.php">Attendance</a>
-        <a href="../reports/performance_report.php">Performance</a>
-        <a href="../settings/system_settings.php">Settings</a>
-    </div>
+    <!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="../dashboard.php" class="active">Dashboard</a>
+    <a href="../students/manage_students.php">Students</a>
+    <a href="../teachers/manage_teachers.php">Teachers</a>
+    <a href="../classes/manage_classes.php">Classes</a>
+    <a href="../subjects/manage_subjects.php">Subjects</a>
+    <a href="../reports/attendance_report.php">Attendance Reports</a>
+    <a href="../reports/performance_report.php">Performance Reports</a>
+    <a href="../settings/system_settings.php">System Settings</a>
+</div>
 
     <div class="content">
 
@@ -218,7 +219,7 @@ $subjects = mysqli_query($conn, "
             <div class="action-bar">
                 <a href="class_students.php?id=<?php echo $class_data['class_id']; ?>">View Students</a>
                 <a href="assign_teacher.php?id=<?php echo $class_data['class_id']; ?>">Assign Class Teacher</a>
-                <a href="manage_subjects.php?class_id=<?php echo $class_data['class_id']; ?>">Manage Subjects</a>
+                <a href="../../admin/subjects/manage_subjects.php?class_id=<?php echo $class_data['class_id']; ?>">Manage Subjects</a>
             </div>
 
             <!-- SUBJECTS TABLE -->

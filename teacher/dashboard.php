@@ -8,6 +8,19 @@ include("../config/database.php");
 $user_id = $_SESSION['user_id'];
 $name = $_SESSION['name'] ?? 'Teacher';
 
+/* FETCH PROFILE DATA */
+$profile_query = mysqli_query($conn,"
+    SELECT name, email, profile_image
+    FROM users
+    WHERE user_id='$user_id'
+");
+
+$profile = mysqli_fetch_assoc($profile_query);
+
+$teacher_name  = $profile['name'] ?? $name;
+$teacher_email = $profile['email'] ?? '';
+$teacher_photo = $profile['profile_image'] ?? 'default.png';
+
 /* TEACHER ID */
 $teacher_query = mysqli_query($conn, "
     SELECT teacher_id 
@@ -183,10 +196,20 @@ $recent_activity = mysqli_query($conn,"
 
 <div class="topbar">
     <div><b>Teacher Portal</b></div>
-    <div class="profile">
-        <span><?php echo $name; ?></span>
-        <img src="../assets/images/default.png">
+    <div class="profile" style="display:flex;align-items:center;gap:10px;">
+    
+    <div style="text-align:right;">
+        <div style="font-weight:bold;"><?php echo $teacher_name; ?></div>
+       
     </div>
+
+    <img 
+        src="../uploads/profiles/<?php echo $teacher_photo; ?>" 
+        style="width:40px;height:40px;border-radius:50%;object-fit:cover;"
+        onerror="this.src='../assets/images/default.png';"
+    >
+
+</div>
 </div>
 
 <div class="layout">
@@ -202,6 +225,7 @@ $recent_activity = mysqli_query($conn,"
     <a href="assessments/view_marks.php">View Marks</a>
     <a href="reports/class_performance.php">Class Performance</a>
     <a href="students/view_students.php">View Students</a>
+    <a href="profile/my_profile.php">Update Profile</a>
     <a href="../includes/logout.php">Logout</a>
 </div>
 

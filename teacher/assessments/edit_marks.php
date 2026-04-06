@@ -8,6 +8,19 @@ include("../../config/database.php");
 $user_id = $_SESSION['user_id'];
 $teacher_name = $_SESSION['name'] ?? 'Teacher';
 
+/* FETCH PROFILE DATA */
+$profile_query = mysqli_query($conn,"
+    SELECT name, email, profile_image
+    FROM users
+    WHERE user_id='$user_id'
+");
+
+$profile = mysqli_fetch_assoc($profile_query);
+
+$teacher_name  = $profile['name'] ?? $name;
+$teacher_email = $profile['email'] ?? '';
+$teacher_photo = $profile['profile_image'] ?? 'default.png';
+
 $teacher_query = mysqli_query($conn, "SELECT teacher_id FROM teachers WHERE user_id = '$user_id'");
 $teacher = mysqli_fetch_assoc($teacher_query);
 $teacher_id = $teacher['teacher_id'] ?? 0;
@@ -278,20 +291,37 @@ select {
 
 <div class="topbar">
     <h1>Teacher Portal</h1>
-    <div class="profile">
-        <span><?= htmlspecialchars($teacher_name) ?></span>
-        <img src="../../assets/images/default.png" alt="Profile">
+    <div class="profile" style="display:flex;align-items:center;gap:10px;">
+    
+    <div style="text-align:right;">
+        <div style="font-weight:bold;"><?php echo $teacher_name; ?></div>
     </div>
+
+    <img 
+        src="../../uploads/profiles/<?php echo $teacher_photo; ?>" 
+        style="width:40px;height:40px;border-radius:50%;object-fit:cover;"
+        onerror="this.src='../assets/images/default.png';"
+    >
+
+</div>
 </div>
 
 <div class="layout">
-    <div class="sidebar">
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="enter_marks.php">Enter Marks</a>
-        <a href="edit_marks.php" class="active">Edit Marks</a>
-        <a href="view_marks.php">View Marks</a>
-        <a href="../../includes/logout.php">Logout</a>
-    </div>
+
+    <!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="../dashboard.php" class="active">Dashboard</a>
+    <a href="../attendance/take_attendance.php">Take Attendance</a>
+    <a href="../attendance/update_attendance.php">Update Attendance</a>
+    <a href="../attendance/view_attendance.php">View Attendance</a>
+    <a href="enter_marks.php">Enter Marks</a>
+    <a href="edit_marks.php">Edit Marks</a>
+    <a href="view_marks.php">View Marks</a>
+    <a href="../reports/class_performance.php">Class Performance</a>
+    <a href="../students/view_students.php">View Students</a>
+    <a href="../profile/my_profile.php">Update Profile</a>
+    <a href="../includes/logout.php">Logout</a>
+</div>
 
     <div class="main">
 

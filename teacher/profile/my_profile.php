@@ -124,12 +124,20 @@ body{font-family:Arial,sans-serif;background:#f4f6f9;color:#2c3e50;margin:0;}
 </div>
 
 <div class="layout">
+<!-- SIDEBAR -->
 <div class="sidebar">
-<a href="../dashboard.php">Dashboard</a>
-<a href="../attendance/view_attendance.php">Attendance</a>
-<a href="../results/view_results.php">Results</a>
-<a href="my_profile.php" class="active">My Profile</a>
-<a href="../../includes/logout.php">Logout</a>
+    <a href="../dashboard.php" class="active">Dashboard</a>
+    <a href="take_attendance.php">Take Attendance</a>
+    <a href="update_attendance.php">Update Attendance</a>
+    <a href="view_attendance.php">View Attendance</a>
+    <a href="../assessments/enter_marks.php">Enter Marks</a>
+    <a href="../assessments/edit_marks.php">Edit Marks</a>
+    <a href="../assessments/view_marks.php">View Marks</a>
+    <a href="../reports/class_performance.php">Class Performance</a>
+    <a href="../students/view_students.php">View Students</a>
+    <a href="../profile/my_profile.php">Update Profile</a>
+
+    <a href="../includes/logout.php">Logout</a>
 </div>
 
 <div class="main">

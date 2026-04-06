@@ -275,12 +275,17 @@ td.rank {
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-  <a href="../dashboard.php">Dashboard</a>
-  <a href="../attendance/take_attendance.php">Attendance</a>
-  <a href="../assessments/enter_marks.php">Enter Marks</a>
-  <a href="../assessments/edit_marks.php">Edit Marks</a>
-  <a href="../assessments/view_marks.php" class="active">View Marks</a>
-  <a href="class_performance.php">Class Performance</a>
+    <a href="../dashboard.php" class="active">Dashboard</a>
+    <a href="take_attendance.php">Take Attendance</a>
+    <a href="update_attendance.php">Update Attendance</a>
+    <a href="view_attendance.php">View Attendance</a>
+    <a href="../assessments/enter_marks.php">Enter Marks</a>
+    <a href="../assessments/edit_marks.php">Edit Marks</a>
+    <a href="../assessments/view_marks.php">View Marks</a>
+    <a href="../reports/class_performance.php">Class Performance</a>
+    <a href="../students/view_students.php">View Students</a>
+    <a href="../profile/my_profile.php">Update Profile</a>
+    <a href="../includes/logout.php">Logout</a>
 </div>
 
 <!-- MAIN CONTENT -->

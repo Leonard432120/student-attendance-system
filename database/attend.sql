@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 29, 2026 at 03:04 AM
+-- Generation Time: Apr 05, 2026 at 06:13 PM
 -- Server version: 8.4.7
 -- PHP Version: 8.3.28
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `assessments` (
 --
 
 INSERT INTO `assessments` (`assessment_id`, `student_id`, `subject_id`, `test_mark`, `assignment_mark`, `exam_mark`) VALUES
-(3, 27, 1, 10, 13, 60);
+(3, 27, 1, 10, 16, 50);
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   PRIMARY KEY (`attendance_id`),
   UNIQUE KEY `unique_attendance` (`student_id`,`class_id`,`attendance_date`),
   KEY `class_id` (`class_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `attendance`
@@ -126,7 +126,8 @@ INSERT INTO `attendance` (`attendance_id`, `student_id`, `class_id`, `status`, `
 (1, 1, 1, 'Absent', '2026-03-17'),
 (2, 1, 1, 'Absent', '2026-03-15'),
 (3, 27, 1, 'Present', '2026-03-25'),
-(4, 27, 1, 'Present', '2026-03-29');
+(4, 27, 1, 'Present', '2026-03-29'),
+(5, 27, 1, 'Absent', '2026-04-05');
 
 -- --------------------------------------------------------
 
@@ -314,9 +315,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `name`, `username`, `password`, `role`, `email`, `phone`, `created_at`, `profile_image`, `last_login`) VALUES
 (45, 'Mlungu', 'MlunguAdmin', '$2y$10$CwTycUXWue0Thq9StjUM0uJ8D5YdYkB4xOQbzfPwM3dq6M3kSxI7e', 'admin', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-29 02:53:44', 'default.png', NULL),
-(43, 'PONJE', 'Ponje john mlu', '$2y$10$89dW4U2ZvaceNLtCnqVf7u2xq0RxDGZ8rmI0r4SP2gdFh5e8Zg0EC', 'student', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-28 21:51:25', '1774752348_480659117_635476765639415_7425634803651385261_n.jpg', '2026-03-29 04:45:14'),
-(32, 'Leonard ponje', 'Ponje2', '$2y$10$G9IjmCKMrk976KdEOjPohudG30DJxCPaz.GpjtHbVQH1SUjnMdmCe', 'teacher', 'leonardponjemlungu@gmail.com', '0899520423', '2026-03-19 21:38:23', 'default.png', '2026-03-29 04:47:29'),
-(1, 'PONJE ADMIN', 'Padmin', '$2y$10$HNJODCdqUaL89XoJ4UIyyOw8Lz1wQxkwSkQvlN1AzVTRR289h7R6.', 'admin', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-29 03:00:26', 'default.png', '2026-03-29 05:02:55'),
+(43, 'PONJE', 'Ponje john mlu', '$2y$10$89dW4U2ZvaceNLtCnqVf7u2xq0RxDGZ8rmI0r4SP2gdFh5e8Zg0EC', 'student', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-28 21:51:25', '1774752348_480659117_635476765639415_7425634803651385261_n.jpg', '2026-04-05 19:17:12'),
+(32, 'Leonard ponje', 'Ponje2', '$2y$10$G9IjmCKMrk976KdEOjPohudG30DJxCPaz.GpjtHbVQH1SUjnMdmCe', 'teacher', 'leonardponjemlungu@gmail.com', '0899520423', '2026-03-19 21:38:23', 'default.png', '2026-04-05 19:12:02'),
+(1, 'PONJE ADMIN', 'Padmin', '$2y$10$HNJODCdqUaL89XoJ4UIyyOw8Lz1wQxkwSkQvlN1AzVTRR289h7R6.', 'admin', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-29 03:00:26', 'default.png', '2026-04-05 19:02:03'),
 (44, 'Leonardponje mlungu', 'Ponje leonard', '$2y$10$G9IjmCKMrk976KdEOjPohudG30DJxCPaz.GpjtHbVQH1SUjnMdmCe', 'teacher', 'leonardponjemlungu@gmail.com', '0899520423', '2026-03-28 21:56:12', 'teacher_69c84e7c36cc44.88536482.jpg', NULL),
 (42, 'PONJE', 'Ponje joh', '$2y$10$G9IjmCKMrk976KdEOjPohudG30DJxCPaz.GpjtHbVQH1SUjnMdmCe', 'student', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-28 21:45:47', 'default.png', '2026-03-29 02:39:33'),
 (41, 'PONJE', 'Ponje john', '$2y$10$G9IjmCKMrk976KdEOjPohudG30DJxCPaz.GpjtHbVQH1SUjnMdmCe', 'student', 'leonardponjemlungu@gmail.com', '0984487611', '2026-03-28 21:44:50', 'student_69c84bd2d8d0d0.09106302.jpg', '2026-03-29 02:21:05'),
